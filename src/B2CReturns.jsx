@@ -146,8 +146,7 @@ export default function B2CReturns() {
     setInvoiceNo("");
     setMobile("");
     setName("");
-    setInvoiceDate("");
-    setAccountId(null);
+    setInvMeta({ date: "" });
     setBillItems([]);
     setInvoiceFull(null);
   };
@@ -176,9 +175,11 @@ export default function B2CReturns() {
   const selectSuggestion = (row) => {
     setInvoiceNo(row.invoice_no || "");
     setName(row.customer_name || "");
-    setInvoiceDate(
-      row.invoice_date ? row.invoice_date.slice(0, 10) : ""
-    );
+    setInvMeta((m) => ({
+    ...m,
+    date: row.invoice_date ? row.invoice_date.slice(0, 10) : "",
+    }));
+
     setSuggestions([]);
     setShowSuggest(false);
   };

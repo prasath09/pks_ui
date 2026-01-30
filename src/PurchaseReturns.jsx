@@ -13,7 +13,7 @@ export default function PurchaseReturns() {
 
   // ---------------- DATA STATE ----------------
   const [items, setItems] = useState([]);
-  const [fullBill, setFullBill] = useState(null);
+ // const [fullBill, setFullBill] = useState(null);
 
   // ---------------- SUGGEST STATE ----------------
   const [suggestions, setSuggestions] = useState([]);
@@ -53,7 +53,7 @@ export default function PurchaseReturns() {
     try {
       const res = await apiPurchaseReturnByBill(billNoValue);
 
-      setFullBill(res);
+     // setFullBill(res);
       setPartyName(res.header?.party_name || "");
       setBillDate(res.header?.date ? res.header.date.slice(0, 10) : "");
 
@@ -72,7 +72,7 @@ export default function PurchaseReturns() {
     } catch (err) {
       alert(err.message || "Purchase bill not found");
       setItems([]);
-      setFullBill(null);
+     // setFullBill(null);
     }
   };
 
