@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import BillingPanel from "./BillingPanel";
 import AccountsPanel from "./AccountsPanel";
+import ReturnsPanel from "./ReturnsPanel";
 
 // ===== Styles =====
 const styles = `
@@ -73,10 +74,13 @@ export default function App() {
             className={`tab ${tab === "billing" ? "active" : ""}`}
             onClick={() => setTab("billing")}
           >
-            BILLING
+          BILLING
+          </button>
+          <button className={`tab ${tab === "returns" ? "active" : ""}`} onClick={() => setTab("returns")}>
+          Returns
           </button>
           <button className={`tab ${tab === "accounts" ? "active" : ""}`} onClick={() => setTab("accounts")}>
-            Accounts
+          Accounts
           </button>
           
         </div>
@@ -86,6 +90,7 @@ export default function App() {
         <BillingPanel company={company} defaultBank={defaultBank} />
       )}
       {tab === "accounts" && <AccountsPanel />}
+      {tab === "returns" && <ReturnsPanel />}
     </div>
   );
 }
