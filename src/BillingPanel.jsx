@@ -2349,11 +2349,11 @@ import {
               printNow();
             }}
           >
-            Save
+            Print
           </button>
 
           <button className="btn primary" onClick={printNow}>
-            Print
+            Preview
           </button>
         </div>
       </div>
